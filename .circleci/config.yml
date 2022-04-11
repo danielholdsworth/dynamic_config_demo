@@ -9,7 +9,8 @@ orbs:
 workflows:
   setup-workflow:
     jobs:
-      - deploy-or-not
+      - gitmessageorb/deploy-or-not:
+          param: e2e
       - path-filtering/filter:
           mapping: |
             packages/api/.* api true
