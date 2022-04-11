@@ -2,4 +2,4 @@
 
 A Basic project to demonstrate Dynamic Configuration / Setup-Workflows
 
-Trigger test
+Utilizing The git commit message filtering orb
