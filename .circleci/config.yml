@@ -11,3 +11,5 @@ workflows:
       - dynamic-message-filter/filter:
           mapping: |
             e2e
+            auth
+            api
