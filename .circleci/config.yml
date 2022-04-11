@@ -9,4 +9,4 @@ workflows:
   setup-workflow:
     jobs:
       - dynamic-message-filter/filter:
-          mapping: auth
+          mapping: e2e
