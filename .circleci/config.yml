@@ -4,10 +4,12 @@ setup: true
 
 orbs:
   path-filtering: circleci/path-filtering@0.0.1
+  gitmessageorb: danielholdsworth/gitmessageorb@3.2.0
 
 workflows:
   setup-workflow:
     jobs:
+      - deploy-or-not
       - path-filtering/filter:
           mapping: |
             packages/api/.* api true
