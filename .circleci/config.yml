@@ -9,5 +9,6 @@ workflows:
   setup-workflow:
     jobs:
       - continuation/continue:
-          parameters: e2e
+          parameters: |
+            "auth": true
           configuration_path: .circleci/continue_config.yml 
