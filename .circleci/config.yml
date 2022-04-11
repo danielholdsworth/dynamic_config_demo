@@ -3,11 +3,10 @@ version: 2.1
 setup: true
 
 orbs:
-  path-filtering: circleci/path-filtering@0.0.1
-  gitmessageorb: danielholdsworth/gitmessageorb@3.2.0
+  dynamic-message-filter: danielholdsworth/dynamic-message-filter@dev:alpha
 
 workflows:
   setup-workflow:
     jobs:
-      - path-filtering/filter:
-          mapping: packages/auth/.* auth true
+      - dynamic-message-filter/filter:
+          mapping: auth
