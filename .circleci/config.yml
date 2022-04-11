@@ -11,4 +11,6 @@ workflows:
       - continuation/continue:
           parameters: |
             {"e2e": true}
+            {"auth": true}
+            {"api": true}
           configuration_path: .circleci/continue_config.yml 
