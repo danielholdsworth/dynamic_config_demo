@@ -10,6 +10,7 @@ workflows:
     jobs:
       - dynamic-message-filter/filter:
           mapping: |
-            e2e
-            auth
             api
+            auth
+            e2e
+            unit
