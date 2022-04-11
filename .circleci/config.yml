@@ -10,5 +10,5 @@ workflows:
     jobs:
       - continuation/continue:
           parameters: |
-            {"parameters":{"e2e":true}}
+            "e2e": true
           configuration_path: .circleci/continue_config.yml 
