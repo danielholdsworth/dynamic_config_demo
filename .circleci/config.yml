@@ -13,4 +13,4 @@ workflows:
             api
             auth
             e2e
-            unit
+            fake
