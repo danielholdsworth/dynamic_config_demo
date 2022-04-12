@@ -13,4 +13,5 @@ workflows:
             api
             auth
             e2e
-            fake
+            unit
+            longparamname
