@@ -13,9 +13,6 @@ parameters:
   unit:
     type: boolean
     default: false
-  longparamname:
-    type: boolean
-    default: false
 
 jobs:
   api-build:
@@ -50,14 +47,7 @@ jobs:
           name: echo Hello
           command: |
             echo "This is the unit tests"
-  long-param-name-build:
-    docker:
-      - image: cimg/base:2021.01
-    steps:
-      - run:
-          name: echo Hello
-          command: |
-            echo "This is a job with a long param name"
+
 workflows:
   api:
     when: << pipeline.parameters.api >>
@@ -75,7 +65,3 @@ workflows:
     when: << pipeline.parameters.unit >>
     jobs:
       - auth-build
-  long-param-name:
-    when: << pipeline.parameters.longparamname >>
-    jobs:
-      - long-param-name-build
