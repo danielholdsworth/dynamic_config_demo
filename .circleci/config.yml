@@ -14,4 +14,3 @@ workflows:
             auth
             e2e
             unit
-            longparamname
