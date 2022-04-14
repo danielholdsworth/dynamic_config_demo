@@ -3,7 +3,7 @@ version: 2.1
 setup: true
 
 orbs:
-  dynamic-message-filter: danielholdsworth/dynamic-message-filter@dev:alpha
+  dynamic-message-filter: danielholdsworth/dynamic-message-filter@1.0.0
 
 workflows:
   setup-workflow:
