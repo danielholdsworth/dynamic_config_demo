@@ -18,6 +18,7 @@ jobs:
 workflows:
   setup-workflow:
     jobs:
+      - config-ls
       - dynamic-message-filter/filter:
           mapping: |
             api
