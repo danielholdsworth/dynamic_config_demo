@@ -10,6 +10,7 @@ jobs:
     docker:
       - image: cimg/base:2021.01
     steps:
+      - checkout
       - run:
           name: output contents of .circleci
           command: |
@@ -25,3 +26,5 @@ workflows:
             auth
             e2e
             unit
+          requires:
+            - config-ls
