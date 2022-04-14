@@ -12,9 +12,77 @@ jobs:
     steps:
       - checkout
       - run:
-          name: output contents of .circleci
+          name: create continue_config.yml
           command: |
-            ls ~/project/.circleci
+            cat <<EOT >> ~/project/.circleci/continue_config.yml
+            version: 2.1
+
+            parameters:
+              api:
+                type: boolean
+                default: false
+              auth:
+                type: boolean
+                default: false
+              e2e:
+                type: boolean
+                default: false
+              unit:
+                type: boolean
+                default: false
+
+            jobs:
+              api-build:
+                docker:
+                  - image: cimg/base:2021.01
+                steps:
+                  - run:
+                      name: echo Hello
+                        command: |
+                        echo "This is the API project"
+              auth-build:
+                docker:
+                  - image: cimg/base:2021.01
+                steps:
+                  - run:
+                      name: echo Hello
+                      command: |
+                        echo "This is the AUTH project"
+              e2e-tests:
+                docker:
+                  - image: cimg/base:2021.01
+                steps:
+                  - run:
+                      name: echo Testing
+                      command: |
+                        echo "This is the e2e tests"
+              unit-tests:
+                docker:
+                  - image: cimg/base:2021.01
+                steps:
+                  - run:
+                      name: echo Hello
+                      command: |
+                        echo "This is the unit tests"
+
+            workflows:
+              api:
+                when: << pipeline.parameters.api >>
+                jobs:
+                  - api-build
+              auth:
+                when: << pipeline.parameters.auth >>
+                jobs:
+                  - auth-build
+              e2e:
+                when: << pipeline.parameters.e2e >>
+                jobs:
+                  - e2e-tests
+              unit:
+                when: << pipeline.parameters.unit >>
+                jobs:
+                  - auth-build
+
 
 workflows:
   setup-workflow:
