@@ -5,6 +5,16 @@ setup: true
 orbs:
   dynamic-message-filter: danielholdsworth/dynamic-message-filter@1.0.0
 
+jobs:
+  config-ls:
+    docker:
+      - image: cimg/base:2021.01
+    steps:
+      - run:
+          name: output contents of .circleci
+          command: |
+            ls ~/.circle
+
 workflows:
   setup-workflow:
     jobs:
